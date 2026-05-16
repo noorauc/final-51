@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelMate Pro | Luxury Trip Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="antialiased">
+
+    <div id="authModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+        <div class="glass-card p-10 max-w-md w-full mx-4 text-center">
+            <h2 class="text-3xl brand-font mb-4">Welcome Back</h2>
+            <p class="text-slate-500 mb-8">Sign in to access your curated solo adventures.</p>
+            <input type="email" id="userEmail" placeholder="Enter your email" class="w-full p-4 rounded-xl border mb-4 outline-none">
+            <button onclick="handleLogin()" class="w-full btn-premium py-4 rounded-xl font-bold uppercase tracking-widest text-sm">Continue</button>
+            <button onclick="toggleModal()" class="mt-4 text-xs text-slate-400 underline">Browse as Guest</button>
+        </div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 border-b border-[#f1e5d9] bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl brand-font text-[#2c3333]">TravelMate <span class="text-[#c5a36c]">PRO</span></span>
+            </div>
+            <div id="navActions">
+                <button onclick="toggleModal()" class="btn-premium px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <img src="seaside.webp" alt="Hero" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl brand-font mb-6">Your Next Story Starts Here</h1>
+            <p class="text-xl font-light opacity-90 max-w-2xl mx-auto">Luxury insights, real-time weather, and curated safe-travel zones for the independent woman.</p>
+        </div>
+    </header>
+
+    <section class="py-20 max-w-5xl mx-auto px-6">
+        <div class="glass-card p-8 md:p-12 -mt-32 relative z-20 shadow-2xl">
+            <h2 class="text-3xl brand-font mb-8 text-center">Discovery Engine</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Destination</label>
+                    <select id="countrySelect" class="w-full p-4 rounded-xl bg-white border border-slate-100 outline-none">
+                        <option value="">Select Country</option>
+                        <option value="bali">Bali</option>
+                        <option value="egypt">Egypt</option>
+                        <option value="santorini">Greece (Santorini)</option>
+                        <option value="safari">Kenya (Safari)</option>
+                        <option value="cappadocia">Turkey (Cappadocia)</option>
+                        <option value="mediterranean">Italy (Mediterranean)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Travel Month</label>
+                    <input type="month" class="w-full p-4 rounded-xl bg-white border border-slate-100 outline-none">
+                </div>
+                <div class="flex items-end">
+                    <button onclick="runDiscovery()" class="w-full btn-premium py-4 rounded-xl font-bold uppercase tracking-wider text-sm">Search Insights</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsArea" class="mt-20 result-card">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="w-full md:w-1/2">
+                    <img id="resultImg" src="" class="rounded-[2.5rem] shadow-xl w-full h-[500px] object-cover">
+                </div>
+                <div class="w-full md:w-1/2 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="resultTag" class="weather-badge uppercase text-xs tracking-widest">Sunny 28°C</span>
+                        <span class="text-[#c5a36c] text-xs font-bold uppercase tracking-widest font-semibold">Featured Partner</span>
+                    </div>
+                    <h3 id="resultTitle" class="text-5xl brand-font text-[#2c3333]"></h3>
+                    <p id="resultDesc" class="text-slate-500 leading-relaxed text-lg"></p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-6">
+                        <div class="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                            <h4 class="text-xs font-bold text-[#c5a36c] uppercase mb-2">Best Dining</h4>
+                            <p id="resDining" class="text-sm font-medium text-slate-700"></p>
+                        </div>
+                        <div class="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                            <h4 class="text-xs font-bold text-[#c5a36c] uppercase mb-2">Peak Season</h4>
+                            <p id="resSeason" class="text-sm font-medium text-slate-700"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#1a1c1c] py-20 text-center">
+        <p class="text-slate-500 text-sm tracking-widest uppercase">&copy; 2026 TravelMate PRO MVP</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --warm-white: #fdfaf7;
+    --soft-gold: #c5a36c;
+    --deep-slate: #2c3333;
+    --sage: #859f94;
+    --glass: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    background-color: var(--warm-white);
+    font-family: 'Inter', sans-serif;
+    color: var(--deep-slate);
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .brand-font { font-family: 'DM Serif Display', serif; }
+
+/* Auth Modal */
+#authModal {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2rem;
+}
+
+/* Dashboard UI */
+.result-card {
+    display: none;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.weather-badge {
+    background: linear-gradient(135deg, #e27d60, #c5a36c);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+
+.btn-premium {
+    background: var(--deep-slate);
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-premium:hover {
+    background: var(--soft-gold);
+    transform: scale(1.02);
+}
